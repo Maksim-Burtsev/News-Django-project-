@@ -1,10 +1,15 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
-    {% for post in posts %}
-        <a href="{{post.url}}"><p>{{ post.title }}</p></a>
-        <p><img src="{{post.image_link}}" width="50%"></p>
-        <p>{{post.content}}</p>
-
+<div class="w3-row-padding">
+    {% for post in posts%}
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img src="{{ post.image_link }}" alt="Norway" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>{{ post.title }}</b></p>
+        <!-- <p>{{ post`.content }}</p> -->
+      </div>
+    </div>
     {% endfor %}
+</div>
 {% endblock %}

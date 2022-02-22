@@ -13,5 +13,8 @@ class ShowPost(ListView):
 
     def get_context_data(self, **kwargs):
         context =  super().get_context_data(**kwargs)
-
+        if self.request.GET.get('c') == 'bw':
+            context['bw_color'] = True
+            print(True)
+        
         return context

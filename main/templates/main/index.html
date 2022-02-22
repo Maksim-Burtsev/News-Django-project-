@@ -1,23 +1,30 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
+black&white mode<a href="?c=bw"> ON</a> <a href="/"> OFF</a>
   <section class="grid">
-
     {% for post in posts %}
     <article class="grid-item">
-      <div class="image">
-        <img src="{{post.image_link}}" style=""/>
-      </div>
-      <div class="info">
-        <h2 style="text-align:center;vertical-align:middle;
-        ">{{ post.title }}</h2>
-        <div class="info-text">
-          <!-- <p>{{ post.content }}</p> -->
+      <a href="{{ post.url }}">
+        <div class="image">
+          {% if bw_color %}
+          <img src="{{post.image_link}}" style="-webkit-filter: grayscale(100%);filter: grayscale(100%);"/>
+          {% else %}
+            <img src="{{post.image_link}}"/>
+          {% endif %}
+
         </div>
-        <div class="button-wrap">
-          <!-- <a class="atuin-btn" href="#link">Подробнее</a> -->
+        <div class="info">
+          <h2 style="text-align:center;vertical-align:middle;
+          ">{{ post.title }}</h2>
+          <div class="info-text">
+            <!-- <p>{{ post.content }}</p> -->
+          </div>
+          <div class="button-wrap">
+            <!-- <a class="atuin-btn" href="#link">Подробнее</a> -->
+          </div>
         </div>
-      </div>
+      </a>
     </article>
     {% endfor %}
   </section>

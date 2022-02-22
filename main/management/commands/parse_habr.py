@@ -62,17 +62,27 @@ def create_db_entry(data, post_id):
 
     time_published = time_published.astimezone(timezone.utc)
 
-    obj = Post(
-        title = title,
-        content = content, 
-        time_published = time_published,
-        cat_id = cat_id, 
-        url = url,
-        image_link = img,
-        id = post_id, 
-    )
+    obj = Post.objects.get(id=post_id)
+
+    obj.title = title
+    obj.content = content
+    obj.time_published = time_published
+    # obj.cat_id = cat_id
+    obj.url = url
+    obj.image_link = img
 
     obj.save()
+    # obj = Post(
+    #     title = title,
+    #     content = content, 
+    #     time_published = time_published,
+    #     cat_id = cat_id, 
+    #     url = url,
+    #     image_link = img,
+    #     id = post_id, 
+    # )
+
+    # obj.save()
 
 def main():
     

@@ -15,4 +15,3 @@ class ShowPost(ListView):
         context =  super().get_context_data(**kwargs)
 
         return context
-
